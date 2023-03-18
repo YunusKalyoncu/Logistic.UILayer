@@ -1,0 +1,38 @@
+﻿@model Logistic.UILayer.Models.TblOrder
+@{
+    ViewBag.Title = "AddOrder";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<h2>AddOrder</h2>
+
+<form method="post">
+    <table class="table table-striped">
+        <tr>
+            <th>#</th>
+            <th>Müşteri</th>
+            <th>Nereden</th>
+            <th>Nereye</th>
+            <th>Ürün</th>
+            <th>Boyut</th>
+            <th>Fiyat</th>
+           
+            
+        </tr>
+
+        @foreach (var item in Model)
+        {
+<tr>
+    <td>@item.OrderID</td>
+    <td>@item.TblCustomer.CustomerName @item.TblCustomer.CustomerSurname</td>
+    <td>@item.TblCity.CityName</td>
+    <td>@item.TblCity1.CityName</td>
+    <td>@item.OrderProduct</td>
+    <td>@item.OrderSize</td>
+    <td>@item.OrderPrice</td>
+    
+</tr>}
+
+    </table>
+    <a href="/Order/Index/" class="btn btn-info">Ekle</a>
+</form>

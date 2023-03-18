@@ -24,6 +24,18 @@ namespace Logistic.UILayer.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        [HttpGet]
+        public ActionResult AddOrder()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AddOrder(TblOrder p)
+        {
+            db.TblOrder.Add(p);
+            db.SaveChanges();
 
+            return RedirectToAction("Index");
+        }
     }
 }
